@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
+//Entity Padrão, para reaproveitamento em outros objetos Entity. Semelhante ao Padrão DAO.
 @Entity
 @MappedSuperclass
 @NoArgsConstructor
