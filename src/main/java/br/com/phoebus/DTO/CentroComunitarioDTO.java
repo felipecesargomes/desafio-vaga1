@@ -1,17 +1,12 @@
-package br.com.phoebus.entity;
+package br.com.phoebus.DTO;
 
-
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document(collection = "centros_comunitarios")
-public class CentroComunitario extends BaseEntity {
+public class CentroComunitarioDTO extends BaseDTO {
 
     private String nome;
     private String endereco;
     private String localizacao;
     private int capacidadeMaxima;
     private int ocupacaoAtual;
-   // private List<Recurso> recursos;
 
     public String getNome() {
         return nome;

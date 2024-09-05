@@ -8,11 +8,11 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public abstract class BaseService<ENTITY extends BaseEntity, DTO extends BaseDTO> implements IBaseService<DTO> {
 
-    private MongoRepository repository;
-    private Class dtoClass;
-    private Class entityClass;
+    private MongoRepository<ENTITY, String> repository;
+    private Class<DTO> dtoClass;
+    private Class<ENTITY> entityClass;
 
-    public BaseService(MongoRepository repository, Class dtoClass, Class entityClass) {
+    public BaseService(MongoRepository<ENTITY, String> repository, Class<DTO> dtoClass, Class<ENTITY> entityClass) {
         this.repository = repository;
         this.dtoClass = dtoClass;
         this.entityClass = entityClass;
@@ -22,14 +22,12 @@ public abstract class BaseService<ENTITY extends BaseEntity, DTO extends BaseDTO
 
         ENTITY entity;
         ModelMapper modelMapper = new ModelMapper();
-        // modelMapper.getConfiguration().setSkipNullEnabled(true).setMatchingStrategy(MatchingStrategies.STRICT);
-
-        try {
+              try {
             entity = (ENTITY) modelMapper.map(dto, entityClass);
             entity = (ENTITY) repository.save(entity);
             return (DTO) modelMapper.map(entity, dtoClass);
         } catch (Exception e) {
-            throw e; // Relança a exceção original
+            throw e;
         }
 
     }

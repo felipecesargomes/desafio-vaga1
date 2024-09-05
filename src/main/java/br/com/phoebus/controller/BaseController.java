@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 public abstract class BaseController<DTO> {
 
-    private IBaseService service;
+    private IBaseService<DTO> service;
 
-    public BaseController(IBaseService service) {
+    public BaseController(IBaseService<DTO> service) {
         this.service = service;
     }
 
