@@ -25,7 +25,7 @@ public abstract class BaseController<DTO> {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity getOne(@PathVariable Long id) {
+    public ResponseEntity getOne(@PathVariable String id) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(service.findById(id));
         } catch (Exception e) {
@@ -49,7 +49,7 @@ public abstract class BaseController<DTO> {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable Long id) {
+    public ResponseEntity delete(@PathVariable String id) {
         try {
             service.delete(id);
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body("");

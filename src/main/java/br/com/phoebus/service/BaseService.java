@@ -39,10 +39,10 @@ public abstract class BaseService<ENTITY extends BaseEntity, DTO extends BaseDTO
     }
 
     public DTO findById(String id) throws Exception {
-        Optional<ENTITY> entityOptional = repository.findById(id);
+        ModelMapper modelMapper = new ModelMapper();
         try {
-            ENTITY entity = entityOptional.get();
-            ModelMapper modelMapper = new ModelMapper();
+            ENTITY entity = repository.findById(id)
+                    .orElseThrow(() -> new Exception("Entidade não encontrada"));
             return (DTO) modelMapper.map(entity, dtoClass);
         } catch (Exception e) {
             throw new Exception();
@@ -52,7 +52,7 @@ public abstract class BaseService<ENTITY extends BaseEntity, DTO extends BaseDTO
     public DTO save(DTO dto) throws Exception {
         ENTITY entity;
         ModelMapper modelMapper = new ModelMapper();
-              try {
+        try {
             entity = (ENTITY) modelMapper.map(dto, entityClass);
             entity = (ENTITY) repository.save(entity);
             return (DTO) modelMapper.map(entity, dtoClass);
