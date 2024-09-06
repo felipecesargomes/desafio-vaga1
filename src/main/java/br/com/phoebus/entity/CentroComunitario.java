@@ -3,7 +3,9 @@ package br.com.phoebus.entity;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "centros_comunitarios")
+import java.util.List;
+
+@Document(collection = "centro_comunitario")
 public class CentroComunitario extends BaseEntity {
 
     private String nome;
@@ -51,5 +53,13 @@ public class CentroComunitario extends BaseEntity {
 
     public void setOcupacaoAtual(int ocupacaoAtual) {
         this.ocupacaoAtual = ocupacaoAtual;
+    }
+
+    public List<Recurso> getRecursos() {
+        return recursos;
+    }
+
+    public void setRecursos(List<Recurso> recursos) {
+        this.recursos = recursos;
     }
 }

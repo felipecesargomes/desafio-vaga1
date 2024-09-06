@@ -1,5 +1,9 @@
 package br.com.phoebus.DTO;
 
+import br.com.phoebus.entity.Recurso;
+
+import java.util.List;
+
 public class CentroComunitarioDTO extends BaseDTO {
 
     private String nome;
@@ -7,6 +11,7 @@ public class CentroComunitarioDTO extends BaseDTO {
     private String localizacao;
     private int capacidadeMaxima;
     private int ocupacaoAtual;
+    private List<Recurso> recursos;
 
     public String getNome() {
         return nome;
@@ -46,5 +51,13 @@ public class CentroComunitarioDTO extends BaseDTO {
 
     public void setOcupacaoAtual(int ocupacaoAtual) {
         this.ocupacaoAtual = ocupacaoAtual;
+    }
+
+    public List<Recurso> getRecursos() {
+        return recursos;
+    }
+
+    public void setRecursos(List<Recurso> recursos) {
+        this.recursos = recursos;
     }
 }

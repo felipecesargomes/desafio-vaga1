@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class CentroComunitarioService extends BaseService<CentroComunitario, CentroComunitarioDTO> {
 
-    private CentroComunitarioRepository centroComunitarioRepository;
-
     public CentroComunitarioService(CentroComunitarioRepository centroComunitarioRepository) {
         super(centroComunitarioRepository, CentroComunitarioDTO.class, CentroComunitario.class);
     }
