@@ -11,7 +11,7 @@ public class CentroComunitario extends BaseEntity {
     private String localizacao;
     private int capacidadeMaxima;
     private int ocupacaoAtual;
-   // private List<Recurso> recursos;
+    private List<Recurso> recursos;
 
     public String getNome() {
         return nome;

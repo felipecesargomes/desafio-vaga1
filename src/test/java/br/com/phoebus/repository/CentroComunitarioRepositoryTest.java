@@ -79,6 +79,30 @@ class CentroComunitarioRepositoryTest {
         assertEquals(centro, savedCentro);
     }
 
+    @Test
+    void testDeleteById() {
+        // ARRANGE
+        String idToDelete = "123";
 
+        // ACT
+        repository.deleteById(idToDelete);
 
+        // ASSERT
+        verify(repository, times(1)).deleteById(idToDelete);
+    }
+
+    @Test
+    void testUpdateCentroComunitario() {
+        // ARRANGE
+        CentroComunitario centro = new CentroComunitario();
+        centro.setNome("Centro Atualizado");
+        when(repository.save(centro)).thenReturn(centro);
+
+        // ACT
+        CentroComunitario updatedCentro = repository.save(centro);
+
+        // ASSERT
+        assertNotNull(updatedCentro);
+        assertEquals("Centro Atualizado", updatedCentro.getNome());
+    }
 }
