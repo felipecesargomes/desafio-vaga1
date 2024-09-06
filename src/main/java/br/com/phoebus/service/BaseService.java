@@ -12,7 +12,7 @@ import java.util.Optional;
 
 public abstract class BaseService<ENTITY extends BaseEntity, DTO extends BaseDTO> implements IBaseService<DTO> {
 
-    private MongoRepository<ENTITY, String> repository;
+    protected MongoRepository<ENTITY, String> repository;
     private Class<DTO> dtoClass;
     private Class<ENTITY> entityClass;
 

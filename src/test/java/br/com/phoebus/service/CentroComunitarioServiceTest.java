@@ -77,8 +77,8 @@ class CentroComunitarioServiceTest {
     @Test
     void findById() throws Exception {
 
-        CentroComunitarioDTO dto = new CentroComunitarioDTO();
-        when(centroComunitarioService.findById(entity.getId())).thenReturn(dto);
+        CentroComunitarioDTO dtos = new CentroComunitarioDTO();
+        when(centroComunitarioService.findById(entity.getId())).thenReturn(dtos);
 
         dto = centroComunitarioService.findById(entity.getId());
 
