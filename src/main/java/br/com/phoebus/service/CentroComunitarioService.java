@@ -35,5 +35,9 @@ public class CentroComunitarioService extends BaseService<CentroComunitario, Cen
 
         return modelMapper.map(atualizado, CentroComunitarioDTO.class);
     }
+
+    private void notificarCapacidadeMaxima(CentroComunitario centro) {
+        // Implementar lógica de notificação para outro micro serviço
+    }
     
 }
