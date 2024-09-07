@@ -66,7 +66,7 @@ public class CentroComunitarioService extends BaseService<CentroComunitario, Cen
     private boolean validarIntercambio(CentroComunitario origem, CentroComunitario destino, List<Recurso> recursosOrigem, List<Recurso> recursosDestino) {
         // Calcula a soma dos pontos dos recursos oferecidos pela origem
         int pontosOrigem = recursosOrigem.stream()
-                .mapToInt(Recurso::getPontos)  // Supondo que Recurso tenha um método getPontos()
+                .mapToInt(Recurso::getPontos)
                 .sum();
 
         // Calcula a soma dos pontos dos recursos oferecidos pelo destino
