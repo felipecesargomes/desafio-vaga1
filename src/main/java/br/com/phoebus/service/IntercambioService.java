@@ -4,13 +4,18 @@ import br.com.phoebus.DTO.IntercambioDTO;
 import br.com.phoebus.entity.CentroComunitario;
 import br.com.phoebus.entity.Intercambio;
 import br.com.phoebus.entity.Recurso;
+import br.com.phoebus.repository.CentroComunitarioRepository;
 import br.com.phoebus.repository.IntercambioRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class IntercambioService extends BaseService<Intercambio, IntercambioDTO> {
+
+    @Autowired
+    private CentroComunitarioRepository centroComunitarioRepository;
 
     public IntercambioService(IntercambioRepository IntercambioRepository) {
         super(IntercambioRepository, IntercambioDTO.class, Intercambio.class);
@@ -32,8 +37,8 @@ public class IntercambioService extends BaseService<Intercambio, IntercambioDTO>
         destino.removerRecursos(recursosDestino);
         destino.adicionarRecursos(recursosOrigem);
 
-        centroRepository.save(origem);
-        centroRepository.save(destino);
+        centroComunitarioRepository.save(origem);
+        centroComunitarioRepository.save(destino);
 
         registrarHistorico(origem, destino, recursosOrigem, recursosDestino);
     }
