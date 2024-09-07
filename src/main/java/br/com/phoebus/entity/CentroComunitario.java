@@ -62,4 +62,13 @@ public class CentroComunitario extends BaseEntity {
     public void setRecursos(List<Recurso> recursos) {
         this.recursos = recursos;
     }
+
+    public void adicionarRecursos(List<Recurso> novosRecursos) {
+        this.recursos.addAll(novosRecursos);
+    }
+
+    public void removerRecursos(List<Recurso> recursosParaRemover) {
+        this.recursos.removeAll(recursosParaRemover);
+    }
+
 }

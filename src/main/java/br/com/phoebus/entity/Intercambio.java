@@ -1,8 +1,11 @@
 package br.com.phoebus.entity;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Document(collection = "intercambio")
 public class Intercambio extends BaseEntity {
     private String centroOrigemId;
     private String centroDestinoId;
